@@ -1,6 +1,9 @@
 [
-    {
-        "caption": "open cmd with cur file path",
-        "command": "open_cmd"
-    }
+  {
+    "caption": "open cur file path cmd",
+    "command": "opencurcmdpath"
+  },{
+    "caption": "include a script from inc",
+    "command": "include_script"
+  }
 ]
