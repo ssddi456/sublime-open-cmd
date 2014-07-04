@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "open cmd with cur file path",
+        "command": "open_cmd"
+    }
+]
