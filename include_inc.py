@@ -28,14 +28,18 @@ class IncludeScriptCommand(sublime_plugin.TextCommand):
                                          self.writeInc(resolvers, edit))
 
 
-class testPostSave(sublime_plugin.EventListener):
-  """test PostSave"""
-  def on_post_save(self, view):
-    full_path = view.file_name()
-    dirname = os.path.dirname(full_path)
-    basename = os.path.basename(full_path)
-    basepath,extname = os.path.splitext(full_path)
-    print ( 'post save ' + basename + ' ' + extname )
-    
-    
-    
+class RunFisScriptCommand(sublime_plugin.WindowCommand):
+  """docstring for RunFisScriptCommand"""
+  def run( self ):
+    folder = self.window.folders()
+    fis_conf = os.path.join( folder[0], 'fis-conf.js')
+    os.system('''start "" /d "%s" fis release -wd local''' % folder[0])
+    os.system('''start "" /d "%s" livereload -i .jade -i .less''' % folder[0])
+
+  def is_enabled ( self ):
+    folder = self.window.folders()
+    fis_conf = os.path.join( folder[0], 'fis-conf.js')
+    if os.path.exists( fis_conf ):
+      return True
+    return False
+  

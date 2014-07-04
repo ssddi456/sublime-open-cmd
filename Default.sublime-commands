@@ -5,5 +5,8 @@
   },{
     "caption": "include a script from inc",
     "command": "include_script"
+  },{
+    "caption": "run fis release -wd local",
+    "command": "run_fis_script"
   }
 ]
