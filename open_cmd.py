@@ -8,4 +8,5 @@ class OpencurcmdpathCommand(sublime_plugin.TextCommand):
     curfile = view.file_name()
     if curfile != None :
       filepath = os.path.dirname( view.file_name() )
-      os.system('''start cd /d ''' + filepath)
+      cmd = u'''start cd /d "%s"''' % filepath
+      os.system( cmd.encode('cp936') )
