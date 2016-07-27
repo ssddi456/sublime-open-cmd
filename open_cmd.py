@@ -1,6 +1,10 @@
 import sublime
 import sublime_plugin
 import os
+import sys
+
+python_version = sys.version_info[0]
+
 
 class OpencurcmdpathCommand(sublime_plugin.TextCommand):
   def run(self, edit):
@@ -9,4 +13,7 @@ class OpencurcmdpathCommand(sublime_plugin.TextCommand):
     if curfile != None :
       filepath = os.path.dirname( view.file_name() )
       cmd = u'''start cd /d "%s"''' % filepath
-      os.system( cmd.encode('cp936') )
+      if python_version == 3:
+      	os.system( cmd )
+      else :
+      	os.system( cmd.encode('cp936') )

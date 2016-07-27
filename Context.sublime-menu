@@ -1,0 +1,4 @@
+[  
+	{ "command": "opencurcmdpath", "caption": "open cur file path cmd" },
+	{ "command": "run_fis_script", "caption": "run fis release -wd local"  }
+]
